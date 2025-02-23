@@ -11,9 +11,9 @@ body {
 
 #sidebar {
     flex-grow: 1;
+    max-width: 300px;
 
     background-color: #F8FAFF;
-    font-side: 16pt;
 
     box-sizing: border-box;
     display: flex;
@@ -25,3 +25,30 @@ body {
     flex-grow: 4;
     background-color: #FFFFFF;
 }
+
+.columnar-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-form-text-input {
+    width: 345px;
+    height: 36px;
+    background-color: #F9FBFF;
+    border: 1px;
+    border-style: solid;
+    border-color:  #D7E7FF;
+    font-size: 18pt;
+    font-family: Lato;
+    font-color: #444444;
+}
+
+#email-list-main-container {
+
+}
+
+#email-list-add-button-container {
+    display: flex;
+    align-items: center;
+}
+

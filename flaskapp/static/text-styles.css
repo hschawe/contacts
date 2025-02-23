@@ -1,0 +1,43 @@
+h1, h2, h3, h4, p, a, span, label {
+    font-family: Lato;
+}
+
+input, label {
+    display:block;
+}
+
+.page-title {
+    font-size: calc(32px + 1vw);
+}
+
+.sidebar-name {
+    font-size: calc(12px + 1vw);
+    color: #444444;
+    margin: 10px;
+}
+
+.name-input-label {
+    font-size: 12px;
+    color: #444444;
+}
+
+.add-email-text {
+    font-size: 12pt;
+}
+
+.my-blue { color: #579AFF; }
+.my-red { color: #FF5757; }
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-symbols-outlined.md-18 { font-size: 18px; }
+.material-symbols-outlined.md-24 { font-size: 24px; }
+.material-symbols-outlined.md-36 { font-size: 36px; }
+.material-symbols-outlined.md-48 { font-size: 48px; }

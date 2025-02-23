@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='text-styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_circle,do_not_disturb_on" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
     <script>
         async function loadItems() {
@@ -15,7 +19,7 @@
             itemsContainer.innerHTML = '';
             items.forEach(item => {
                 let div = document.createElement('div');
-                div.innerHTML = `${item.person_id} - ${item.first_name} - ${item.last_name}`;
+                div.innerHTML = `<p class="sidebar-name" >${item.first_name} ${item.last_name}</p>`;
                 itemsContainer.appendChild(div);
             });
         }
@@ -25,12 +29,43 @@
 <body>
 
 <div id="sidebar">
-    <h1>Contacts</h1>
+    <p class="page-title">Contacts</p>
+    <span class="material-symbols-outlined md-36 my-blue">add_circle</span>
     <div id="peoples"></div>
 </div>
 
 <div id="container">
-    <p> emails go here. </p>
+    <form class="columnar-form">
+        <div id="name-input-container">
+            <div style="float:left;margin-right:20px;">
+                <label class="name-input-label" for="first_name">First Name</label>
+                <input class="name-form-text-input" id="first_name" type="text" />
+            </div>
+
+            <div style="float:left;margin-right:20px;">
+                <label class="name-input-label" for="last_name">Last Name</label>
+                <input class="name-form-text-input" id="last_name" type="text" />
+            </div>
+        </div>
+        <div id="email-list-main-container">
+
+            <div id="email-list">
+                <label class="name-input-label" for="email_i">Email</label>
+                <input id="email_i" type="text" />
+
+            </div>
+            <div id="email-list-add-button-container">
+                <span class="material-symbols-outlined md-24 my-blue">add_circle</span>
+                <span id="add-email-text" class="my-blue">add email</span>
+            </div>
+        </div>
+        <div id="form-submit">
+            <input type="submit" value="Save"/>
+        </div>
+    </form>
+
+    <span class="material-symbols-outlined md-36 my-red">do_not_disturb_on</span>
+    <span class="material-symbols-outlined md-36 my-blue">add_circle</span>
 </div>
 </body>
 </html>
