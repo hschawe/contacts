@@ -1,7 +1,27 @@
-#container {
-    color: #FFFFFF
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
-#items {
-    color: #F8FAFF
+#sidebar {
+    flex-grow: 1;
+
+    background-color: #F8FAFF;
+    font-side: 16pt;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#container {
+    flex-grow: 4;
+    background-color: #FFFFFF;
 }

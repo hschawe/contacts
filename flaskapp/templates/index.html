@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <script>
         async function loadItems() {
-            let response = await fetch('/items');
+            let response = await fetch('/people');
             let items = await response.json();
-            let itemsContainer = document.getElementById('items');
+            console.log(items);
+            let itemsContainer = document.getElementById('peoples');
             itemsContainer.innerHTML = '';
             items.forEach(item => {
                 let div = document.createElement('div');
@@ -20,9 +23,14 @@
     </script>
 </head>
 <body>
+
+<div id="sidebar">
+    <h1>Contacts</h1>
+    <div id="peoples"></div>
+</div>
+
 <div id="container">
-    <h1>Item List</h1>
-    <div id="items"></div>
+    <p> emails go here. </p>
 </div>
 </body>
 </html>

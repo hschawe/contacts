@@ -29,6 +29,12 @@ def init_db():
                     PRIMARY KEY (person_id, email)
                     )''')
     conn.commit()
+
+    # cursor = conn.execute('INSERT INTO People (first_name, last_name) VALUES ("Helen", "Schawe") RETURNING person_id')
+    # s = cursor.fetchall()
+    # print(s[0][0])
+    # conn.commit()
+
     conn.close()
 
 
@@ -104,13 +110,6 @@ def index():
 
     return render_template('index.html')
 
-
-@app.route('/items', methods=['GET'])
-def get_items():
-    conn = get_db_connection()
-    items = conn.execute('SELECT * FROM People').fetchall()
-    conn.close()
-    return jsonify([dict(item) for item in items])
 
 
 if __name__ == '__main__':
