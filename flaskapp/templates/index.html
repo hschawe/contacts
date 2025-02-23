@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <script>
+        async function loadItems() {
+            let response = await fetch('/items');
+            let items = await response.json();
+            let itemsContainer = document.getElementById('items');
+            itemsContainer.innerHTML = '';
+            items.forEach(item => {
+                let div = document.createElement('div');
+                div.innerHTML = `${item.person_id} - ${item.first_name} - ${item.last_name}`;
+                itemsContainer.appendChild(div);
+            });
+        }
+        window.onload = loadItems;
+    </script>
+</head>
+<body>
+<div id="container">
+    <h1>Item List</h1>
+    <div id="items"></div>
+</div>
+</body>
+</html>
