@@ -5,33 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='text-styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/text-styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_circle,do_not_disturb_on" />
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
-    <script>
-        async function loadItems() {
-            let response = await fetch('/people');
-            let items = await response.json();
-            console.log(items);
-            let itemsContainer = document.getElementById('peoples');
-            itemsContainer.innerHTML = '';
-            items.forEach(item => {
-                let div = document.createElement('div');
-                div.innerHTML = `<p class="sidebar-name" >${item.first_name} ${item.last_name}</p>`;
-                itemsContainer.appendChild(div);
-            });
-        }
-        window.onload = loadItems;
-    </script>
+    <script src="{{ url_for('static', filename='javascript/crud.js') }}"></script>
 </head>
 <body>
 
 <div id="sidebar">
     <p class="page-title">Contacts</p>
     <span class="material-symbols-outlined md-36 my-blue">add_circle</span>
-    <div id="peoples"></div>
+    <table id="peopleTable"></table>
 </div>
 
 <div id="container">
@@ -48,11 +34,9 @@
             </div>
         </div>
         <div id="email-list-main-container">
-
             <div id="email-list">
                 <label class="name-input-label" for="email_i">Email</label>
-                <input id="email_i" type="text" />
-
+                <input type="text" name="inputs[]" value="">
             </div>
             <div id="email-list-add-button-container">
                 <span class="material-symbols-outlined md-24 my-blue">add_circle</span>

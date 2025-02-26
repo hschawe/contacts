@@ -30,7 +30,12 @@ def init_db():
                     )''')
     conn.commit()
 
-    # cursor = conn.execute('INSERT INTO People (first_name, last_name) VALUES ("Helen", "Schawe") RETURNING person_id')
+    # cursor = conn.execute('INSERT INTO People (first_name, last_name) VALUES ("John", "Smith")')
+    # conn.commit()
+    # cursor = conn.execute('INSERT INTO Emails (person_id, email) VALUES (2, "helen.schawe@gmail.com")')
+    # conn.commit()
+    # cursor = conn.execute('INSERT INTO Emails (person_id, email) VALUES (3, "johnsmith@gmail.com")')
+    # conn.commit()
     # s = cursor.fetchall()
     # print(s[0][0])
     # conn.commit()
