@@ -21,7 +21,9 @@
 </div>
 
 <div id="container">
-    <form class="columnar-form">
+    <form id="main-form" class="columnar-form" action="post" href="">
+        <input style="display:none;" id="person_id" type="text" value=""/>
+
         <div id="name-input-container">
             <div style="float:left;margin-right:20px;">
                 <label class="name-input-label" for="first_name">First Name</label>
@@ -34,22 +36,19 @@
             </div>
         </div>
         <div id="email-list-main-container">
-            <div id="email-list">
-                <label class="name-input-label" for="email_i">Email</label>
-                <input type="text" name="inputs[]" value="">
-            </div>
-            <div id="email-list-add-button-container">
+            <label class="name-input-label">Email</label>
+            <div id="email-list"></div>
+            <div id="email-list-add-button-container" onclick="addEmail()">
                 <span class="material-symbols-outlined md-24 my-blue">add_circle</span>
                 <span id="add-email-text" class="my-blue">add email</span>
             </div>
         </div>
         <div id="form-submit">
+            <button onClick="">Delete</button>
+            <button onClick="">Cancel</button>
             <input type="submit" value="Save"/>
         </div>
     </form>
-
-    <span class="material-symbols-outlined md-36 my-red">do_not_disturb_on</span>
-    <span class="material-symbols-outlined md-36 my-blue">add_circle</span>
 </div>
 </body>
 </html>

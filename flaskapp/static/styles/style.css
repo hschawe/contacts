@@ -24,6 +24,7 @@ body {
 #container {
     flex-grow: 4;
     background-color: #FFFFFF;
+    padding: 3vh 20px 3vh 20px;
 }
 
 .columnar-form {
@@ -40,14 +41,34 @@ body {
     border-color:  #D7E7FF;
     font-size: 18pt;
     font-family: Lato;
-    font-color: #444444;
+    color: #444444;
 }
 
-#email-list-main-container {
+#email-list-main-container:hover .email-text-input-delete-button {
+    display: block;
+}
 
+.email-text-input {
+    font-size: 18pt;
+    font-family: Lato;
+    color: #444444;
+    font-weight: 300;
+    border: 0;
+}
+
+.email-text-input-delete-button {
+    display: none;
+    background: #FFFFFF;
+    border: 0;
 }
 
 #email-list-add-button-container {
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.email-form-input-container {
+    display: flex;
+    flex-direction: row;
 }

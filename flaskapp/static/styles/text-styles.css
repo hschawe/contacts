@@ -4,6 +4,7 @@ h1, h2, h3, h4, p, a, span, label {
 
 input, label {
     display:block;
+    margin: 15px 15px 15px 15px;
 }
 
 .page-title {
@@ -21,8 +22,8 @@ input, label {
     color: #444444;
 }
 
-.add-email-text {
-    font-size: 12pt;
+#add-email-text {
+    font-size: 18pt;
 }
 
 .my-blue { color: #579AFF; }
