@@ -25,6 +25,22 @@ body {
     flex-grow: 4;
     background-color: #FFFFFF;
     padding: 3vh 20px 3vh 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#top-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#main-form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .columnar-form {
@@ -72,3 +88,43 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+#new-contact-btn {
+    border: 0;
+    background-color: transparent;
+}
+
+#form-submit-btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#righthand-btn-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.form-change-btn {
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18pt;
+    font-family: Lato;
+}
+
+.colored-btn {
+    border: 0;
+    color: white;
+}
+
+#form-cancel-btn {
+    border: 1px;
+    border-style: solid;
+    border-color: #579AFF;
+    text-color: black;
+    background-color: #FFFFFF;
+}
+

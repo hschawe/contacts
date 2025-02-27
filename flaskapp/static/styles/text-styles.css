@@ -27,7 +27,9 @@ input, label {
 }
 
 .my-blue { color: #579AFF; }
+.my-blue-bg { background-color: #579AFF; }
 .my-red { color: #FF5757; }
+.my-red-bg { background-color: #FF5757; }
 
 
 .material-symbols-outlined {

@@ -15,38 +15,45 @@
 <body>
 
 <div id="sidebar">
-    <p class="page-title">Contacts</p>
-    <span class="material-symbols-outlined md-36 my-blue">add_circle</span>
+    <p class="page-title">
+        Contacts
+        <button type="button" id="new-contact-btn" onclick="resetForm()"><span class="material-symbols-outlined md-36 my-blue">add_circle</span></button>
+    </p>
+
     <table id="peopleTable"></table>
 </div>
 
 <div id="container">
-    <form id="main-form" class="columnar-form" action="post" href="">
-        <input style="display:none;" id="person_id" type="text" value=""/>
+    <form id="main-form" action="/" class="columnar-form">
+        <input style="display:none;" id="person_id" name="person_id" type="text" value="" readonly/>
 
-        <div id="name-input-container">
-            <div style="float:left;margin-right:20px;">
-                <label class="name-input-label" for="first_name">First Name</label>
-                <input class="name-form-text-input" id="first_name" type="text" />
+        <div id="top-form-container">
+            <div id="name-input-container">
+                <div style="float:left;margin-right:20px;">
+                    <label class="name-input-label" for="first_name">First Name</label>
+                    <input class="name-form-text-input" id="first_name" name="first_name" type="text" />
+                </div>
+
+                <div style="float:left;margin-right:20px;">
+                    <label class="name-input-label" for="last_name">Last Name</label>
+                    <input class="name-form-text-input" id="last_name" name="last_name" type="text" />
+                </div>
             </div>
-
-            <div style="float:left;margin-right:20px;">
-                <label class="name-input-label" for="last_name">Last Name</label>
-                <input class="name-form-text-input" id="last_name" type="text" />
+            <div id="email-list-main-container">
+                <label class="name-input-label">Email</label>
+                <div id="email-list"></div>
+                <div id="email-list-add-button-container" onclick="addEmail()">
+                    <span class="material-symbols-outlined md-24 my-blue">add_circle</span>
+                    <span id="add-email-text" class="my-blue">add email</span>
+                </div>
             </div>
         </div>
-        <div id="email-list-main-container">
-            <label class="name-input-label">Email</label>
-            <div id="email-list"></div>
-            <div id="email-list-add-button-container" onclick="addEmail()">
-                <span class="material-symbols-outlined md-24 my-blue">add_circle</span>
-                <span id="add-email-text" class="my-blue">add email</span>
+        <div id="form-submit-btn-container">
+            <input type="submit" id="form-delete-btn" formmethod="DELETE" class="form-change-btn colored-btn my-red-bg" name="action" value="Delete" onclick="submitDelete()">
+            <div id="righthand-btn-container">
+                <button type="button" id="form-cancel-btn" class="form-change-btn"  onclick="resetForm()">Cancel</button>
+                <input type="submit" id="form-save-btn" class="form-change-btn colored-btn my-blue-bg" name="action" value="Save" onclick="submitSave()"/>
             </div>
-        </div>
-        <div id="form-submit">
-            <button onClick="">Delete</button>
-            <button onClick="">Cancel</button>
-            <input type="submit" value="Save"/>
         </div>
     </form>
 </div>
