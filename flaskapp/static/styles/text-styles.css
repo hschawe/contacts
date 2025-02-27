@@ -1,4 +1,4 @@
-h1, h2, h3, h4, p, a, span, label {
+h1, h2, h3, h4, p, a, span, label, li {
     font-family: Lato;
 }
 
@@ -8,7 +8,8 @@ input, label {
 }
 
 .page-title {
-    font-size: calc(32px + 1vw);
+    font-size: calc(30px + 1vw);
+    margin: 0 8px 0 0;
 }
 
 .sidebar-name {
@@ -24,6 +25,7 @@ input, label {
 
 #add-email-text {
     font-size: 18pt;
+    margin: 0 0 0 8px;
 }
 
 .my-blue { color: #579AFF; }

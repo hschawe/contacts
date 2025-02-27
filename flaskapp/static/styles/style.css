@@ -11,14 +11,35 @@ body {
 
 #sidebar {
     flex-grow: 1;
-    max-width: 300px;
-
+    max-width: 324px;
+    padding: calc(8px + 1.4vw);
     background-color: #F8FAFF;
-
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+}
+
+#sidebar-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+
+#people-name-list {
+    width: 100%;
+    list-style:none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    font-size: calc(10pt + 0.8em);
+    color: #444444;
+    text-align: left;
+    padding: 8px 0 8px 0;
 }
 
 #container {
@@ -60,7 +81,7 @@ body {
     color: #444444;
 }
 
-#email-list-main-container:hover .email-text-input-delete-button {
+.email-form-input-container:hover .email-text-input-delete-button {
     display: block;
 }
 
@@ -79,6 +100,7 @@ body {
 }
 
 #email-list-add-button-container {
+    margin: 15px;
     display: flex;
     align-items: center;
     cursor: pointer;
