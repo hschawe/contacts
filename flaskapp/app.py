@@ -30,18 +30,6 @@ def init_db():
                     PRIMARY KEY (person_id, email)
                     )''')
     conn.commit()
-
-    # cursor = conn.execute('INSERT INTO People (first_name, last_name) VALUES ("Helen", "Schawe") RETURNING person_id')
-    # s = cursor.fetchall()
-    # conn.commit()
-    # cursor = conn.execute(f'INSERT INTO Emails (person_id, email) VALUES ({s[0][0]}, "helen.schawe@gmail.com")')
-    # conn.commit()
-    # cursor = conn.execute('INSERT INTO Emails (person_id, email) VALUES (3, "johnsmith@gmail.com")')
-    # conn.commit()
-    # s = cursor.fetchall()
-    # print(s[0][0])
-    # conn.commit()
-
     conn.close()
 
 
@@ -126,16 +114,15 @@ def form_handle_save():
 
 
 def insert_emails(person_id: int, form_emails: List = None):
-    conn = get_db_connection()
     if form_emails:
-        insert_sql = 'INSERT INTO Emails (person_id, email) VALUES'
-        for email in form_emails:
-            insert_sql += f' ({person_id}, "{email}"),'
-        insert_sql = insert_sql.rstrip(",")
-        conn.execute(insert_sql)
+        conn = get_db_connection()
+        # Secure SQL with parameterized queries
+        cursor = conn.cursor()
+        insert_sql = 'INSERT INTO Emails (person_id, email) VALUES (?, ?)'
+        data = [(person_id, email) for email in form_emails]
+        cursor.executemany(insert_sql, data)  # Safe insertion
         conn.commit()
-    conn.close()
-
+        conn.close()
 
 
 if __name__ == '__main__':
