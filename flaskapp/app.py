@@ -87,10 +87,10 @@ def form_handle_save():
         # If no person_id was passed, this is a new contact
         conn = get_db_connection()
 
-        cursor = conn.execute('INSERT INTO People (first_name, last_name) VALUES (?, ?) RETURNING person_id',
+        conn.execute('INSERT INTO People (first_name, last_name) VALUES (?, ?)',
                               (form_data['first_name'], form_data['last_name']))
-        s = cursor.fetchall()
-        new_person_id = s[0][0]
+        conn.commit()
+        new_person_id = conn.execute('SELECT last_insert_rowid()').fetchone()[0]
         conn.commit()
         conn.close()
 
@@ -125,6 +125,5 @@ def insert_emails(person_id: int, form_emails: List = None):
         conn.close()
 
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+init_db()
+app = app.run(debug=True)
