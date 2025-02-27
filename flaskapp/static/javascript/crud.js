@@ -27,12 +27,14 @@ async function loadItems() {
     let response = await fetch('/people');
     let items = await response.json();
     //console.log(items);
-    let itemsContainer = document.getElementById('peopleTable');
+    let itemsContainer = document.getElementById('people-name-list');
     itemsContainer.innerHTML = '';
     items.forEach(item => {
-        let row = document.createElement('tr');
+        let row = document.createElement('li');
         row.setAttribute("data-id", item.person_id);
-        row.innerHTML = `<td>${item.first_name}</td><td>${item.last_name}</td>`;
+        row.setAttribute("data-fname", item.first_name);
+        row.setAttribute("data-lname", item.last_name);
+        row.innerHTML = `${item.first_name} ${item.last_name}`;
         itemsContainer.appendChild(row);
     });
 
@@ -41,11 +43,11 @@ async function loadItems() {
 
 async function addEventListeners() {
     // Add name listeners
-    document.querySelectorAll("#peopleTable tr").forEach(row => {
+    document.querySelectorAll("#people-name-list li").forEach(row => {
         row.addEventListener("click", async function () {
             let personId = this.getAttribute("data-id");
-            let first = this.cells[0].innerText;
-            let last = this.cells[1].innerText;
+            let first = this.getAttribute("data-fname");
+            let last = this.getAttribute("data-lname");
             response = await fetch(`/emails/${personId}`)
                 .then(response => response.json())
                 .then(data => {
@@ -84,7 +86,8 @@ async function addEmail() {
     let emailDetailDiv = document.getElementById("email-list");
     let newInputContainer = document.createElement('div');
     newInputContainer.setAttribute("class", "email-form-input-container")
-    newInputContainer.innerHTML = `<input type="text" class="email-text-input" name="inputs[]" placeholder="type here..."><button type="button" class="email-text-input-delete-button" onclick="removeEmail(this);"><span class="material-symbols-outlined md-24 my-red">do_not_disturb_on</span></button>`;
+    newInputContainer.innerHTML = `<input type="text" class="
+    email-text-input" name="inputs[]" placeholder="type here..."><button type="button" class="email-text-input-delete-button" onclick="removeEmail(this);"><span class="material-symbols-outlined md-24 my-red">do_not_disturb_on</span></button>`;
     emailDetailDiv.appendChild(newInputContainer);
 }
 
